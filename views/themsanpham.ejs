@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Profile - Brand</title>
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="../public/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../public/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../public/fonts/fontawesome5-overrides.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <%- include('partials/sidebar') %>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <%- include('partials/header') %>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Thêm sản phẩm</h3>
+                    <div class="row mb-3">
+                        <div class="col-lg-8">
+                            <div class="row mb-3 d-none">
+                                <div class="col">
+                                    <div class="card text-white bg-primary shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5%
+                                                since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5%
+                                                since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="a">
+                                    <div class="card shadow mb-5" style="width: 1200px;">
+                                        <div class="card-body" style="height: 500px;">
+                                            <form action="/insertProduct" method="POST">
+                                                <div class="form-row">
+                                                    <div class="col"><small class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Mã
+                                                            sản phẩm</small><input required class="form-control"
+                                                            type="text" name="product_id"></div>
+                                                    <div class="col"><small class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Tên
+                                                            sản phẩm</small><input required class="form-control"
+                                                            type="text" name="product_name"></div>
+                                                    <div class="col"><small class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Hãng
+                                                            sản xuất</small><input required class="form-control"
+                                                            type="text" name="brand"></div>
+                                                    <div class="col"><small class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Ram</small><input
+                                                            required class="form-control" type="text" name="ram"></div>
+                                                </div>
+                                                <div class="form-row" style="height: 80px;">
+                                                    <div class="col" style="height: 80px;">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">Bộ
+                                                                nhớ trong(Rom)</small></div><input required
+                                                            class="form-control" type="text" name="hard_disk"
+                                                            style="margin-top: -10px;">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">CPU</small>
+                                                        </div><input required class="form-control" type="text"
+                                                            style="margin-top: -10px;" name="cpu">
+                                                    </div>
+                                                    <div class="col" style="height: 82px;"><small
+                                                            class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Core</small><input
+                                                            required class="form-control" type="text"
+                                                            style="margin-top: 5px;" name="core"></div>
+                                                    <div class="col"><small class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Màu
+                                                            sắc</small><input required class="form-control" type="text"
+                                                            style="margin-top: 5px;" name="color"></div>
+                                                </div>
+                                                <div class="form-row" style="height: 80px;">
+                                                    <div class="col">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">Màn
+                                                                hình</small></div><input required class="form-control"
+                                                            type="text" style="margin-top: -10px;" name="monitor">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 232px;">Kích
+                                                                thước(rộng x dài x cao)</small></div><input required
+                                                            class="form-control" type="text" style="margin-top: -10px;"
+                                                            name="size">
+                                                    </div>
+                                                    <div class="col" style="height: 80px;"><small
+                                                            class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Card
+                                                            đồ họa(VGA)</small><input required class="form-control"
+                                                            type="text" style="margin-top: 6px;" name="vga"></div>
+                                                    <div class="col" style="height: 80px;"><small
+                                                            class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Hệ
+                                                            điều hành</small><input required class="form-control"
+                                                            type="text" style="margin-top: 6px;" name="os"></div>
+                                                </div>
+                                                <div class="form-row" style="height: 80px;">
+                                                    <div class="col">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">Giá
+                                                                nhập</small></div><input required class="form-control"
+                                                            type="number" min="1" style="margin-top: -10px;"
+                                                            name="price_income">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 232px;">Giá
+                                                                bán</small></div><input required class="form-control"
+                                                            type="number" min="1" style="margin-top: -10px;"
+                                                            name="price_outcome">
+                                                    </div>
+                                                    <div class="col" style="height: 80px;"><small
+                                                            class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Số
+                                                            lượng sản phẩm</small><input required class="form-control"
+                                                            type="text" style="margin-top: 6px;" name="quantity"></div>
+                                                    <div class="col" style="height: 80px;"><small
+                                                            class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Link
+                                                            video review</small><input required class="form-control"
+                                                            type="text" style="margin-top: 6px;" name="link_review">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row" style="height: 80px;">
+                                                    <div class="col-6">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">Link
+                                                                hình ảnh</small></div><textarea rows="4"
+                                                            class="form-control" required type="text"
+                                                            style="margin-top: 6px;"
+                                                            name="img"></textarea>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary" type="submit"
+                                                    style="margin-top: 20px; right: 20px; position: absolute;">Thêm Sản
+                                                    Phẩm</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="card shadow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-5"></div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="../public/scripts/jquery.min.js"></script>
+    <script src="../public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../public/scripts/chart.min.js"></script>
+    <script src="../public/scripts/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+
+</body>
+
+</html>

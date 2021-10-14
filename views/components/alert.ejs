@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .alert{
+            padding: 20px 40px;
+            min-width: 420px;
+            position: absolute;
+            right: 0px;
+            top: 10px;
+            border-radius: 4px;
+        }
+
+        .alert.show{
+            animation: show_slides 1s ease forwards;
+        }
+
+        .alert.hide{
+            display: none;
+        }
+
+        @keyframes show_slides {
+            0%{
+                transform: translateX(100%);
+            }
+
+            40%{
+                transform: translateX(10%);
+            }
+
+            80%{
+                transform: translateX(0%);
+            }
+
+            
+            100%{
+                transform: translateX(-10%);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="alert alert-danger hide" id="alert-fail">
+        <span class="fas fa-exclamation-circle"></span>
+        <span>Login Failed</Span>
+    </div>
+    <div class="alert alert-success hide" id="alert-sucess">
+        <span class="fas fa-exclamation-circle"></span>
+        <span>Login Sucess</Span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TrangQuanTri</title>
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="../public/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../public/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../public/fonts/fontawesome5-overrides.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <%- include('partials/sidebar') %>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <%- include('partials/header') %>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Thêm Thông Báo</h3>
+                    <div class="row mb-3">
+                        <div class="col-lg-8">
+                            <div class="row mb-3 d-none">
+                                <div class="col">
+                                    <div class="card text-white bg-primary shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                    <p class="m-0">Peformance</p>
+                                                    <p class="m-0"><strong>65.2%</strong></p>
+                                                </div>
+                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
+                                            </div>
+                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow mb-3" style="width: 1000px;">
+                                        <div class="card-body" style="height: 450px;">
+                                           <form action="/insertEvent" method="POST">
+                                            <div class="form-row">
+                                              <div class="col-6">
+                                                  <span class="">Tiêu đề</span>
+                                                <input type="text" class="form-control" name="title" required placeholder="nhập tiêu đề">
+                                              </div>
+                                            
+                                              <div class="col-6">
+                                                <span class="">Link ảnh sự kiện thông báo</span>
+                                                <input type="text"  class="form-control"name="link_img" required placeholder="Enter link img">
+                                              </div>
+                                              <div class="col mt-3">
+                                                <span class="">Nội dung</span>
+                                                <textarea type="text" style="height: 100px;" class="form-control" name="description" required placeholder="Noi dung"></textarea>
+                                              </div>
+                                            </div>
+                                            <button class="btn btn-primary mt-5" type="submit"
+                                            style="margin-top: 20px;right: 40px; position: absolute;">Thêm
+                                            mới</button>
+                                          </form>  </div>
+                                    </div>
+                                    <div class="card shadow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-5"></div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="../public/scripts/jquery.min.js"></script>
+    <script src="../public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../public/scripts/chart.min.js"></script>
+    <script src="../public/scripts/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../public/scripts/theme.js"></script>
+</body>
+
+</html>

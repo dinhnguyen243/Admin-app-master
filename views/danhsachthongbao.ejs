@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>TrangQuanTri</title>
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="../public/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../public/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../public/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../public/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../public/css/dataTables.bootstrap4.min.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <%- include('partials/sidebar') %>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <%- include('partials/header') %>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Sự kiện, thông báo</h3>
+
+                    <div class="card-body">
+
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm"
+                                        cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="th-sm">STT
+
+                                                </th>
+                                                <th class="th-sm">Tiêu đề
+
+                                                </th>
+                                                <th class="th-sm">Nội dung
+
+                                                </th>
+                                                <th class="th-sm">Trạng thái
+
+                                                </th>
+                                                <th class="th-sm">Tạo ngày
+
+                                                </th>
+                                                <th class="th-sm">Tác vụ
+
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for(let i = 0; i < size; ++i){%>
+                                            <tr>
+                                                <td><%=i + 1%></td>
+                                                <td><%= listEvent[i].title %></td>
+                                                <td><%= listEvent[i].description %></td>
+                                                <td><%= listEvent[i].status ? 'Khả dụng' : 'Không khả dụng'%></td>
+                                                <td><%= new Date(listEvent[i].created_at).toLocaleDateString()%></td>
+                                                <td class=""><a href="/capnhatthongbao/<%= listEvent[i]._id %>"><i
+                                                    class="fa fa-pencil"></i></a>
+                                            | <a href="/deleteEvent/<%= listEvent[i]._id %>"><i
+                                                    class="icon ion-android-delete"></i></a></td>
+                                            </tr>
+                                            <% }%>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="../public/scripts/jquery.min.js"></script>
+    <script src="../public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../public/scripts/chart.min.js"></script>
+    <script src="../public/scripts/bs-init.js"></script>
+    <script src="../public//bootstrap/js/jquery.dataTables.min.js"></script>
+    <script src="../public//bootstrap/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../public/scripts/theme.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+</body>
+
+</html>
