@@ -7,6 +7,7 @@ import EventController from '../controllers/EventController.js'
 import CustomerController from '../controllers/CustomerController.js'
 import PaymentController from '../controllers/PaymentController.js'
 import routerAPI from './api/router.js'
+import fileImagehandler from '../services/file.imagehandler.js'
 
 const router = express.Router()
 
@@ -30,9 +31,9 @@ router.post('/login', AdminController.login)
 router.get('/logout', AdminController.logout)
 
 // routes product
-router.post('/insertProduct', ProductController.insertProduct)
+router.post('/insertProduct', fileImagehandler.upload.array('img',Number.MAX_SAFE_INTEGER), ProductController.insertProduct)
 
-router.post('/updateProduct/:id', ProductController.updateProduct)
+router.post('/updateProduct/:id',fileImagehandler.upload.array('img',Number.MAX_SAFE_INTEGER), ProductController.updateProduct)
 
 router.get('/deleteProduct/:id', auth, ProductController.deleteProduct)
 

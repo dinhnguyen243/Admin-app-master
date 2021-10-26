@@ -68,8 +68,9 @@ const ProductModel = new Schema({
         default: []
     },
     link_review: {
-        type: String,
-        required: true
+        type: Array,
+        required: true,
+        default: []
     },
     created_at: {
         type: Date,

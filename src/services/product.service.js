@@ -1,9 +1,24 @@
 import ProductModel from '../models/ProductModel.js'
+import fs from 'fs'
 import fnv32Auto from '../lib/util.js'
 
-const insertProductService = async (product) => {
+const insertProductService = async (arrayImage, product) => {
     let _docsProduct = {}
-    product.img = product.img.split(',')
+
+    if(!!arrayImage){    
+    product.img = arrayImage.map(img => {
+        const fnv32Id = fnv32Auto(`${Date.now()}${Math.random()}`)  // generate fnv32 auto for key
+        const hashNameImg =  fnv32Auto(fnv32Id) + '-' +img
+
+        fs.renameSync('./public/img/' + img, './public/img/'+hashNameImg)
+
+        return hashNameImg
+    })
+
+    console.log(product.img)
+    }
+
+    product.link_review = product.link_review.split(',')
     if (!(await isProductIsExsited(product.product_id.toUpperCase()))) {
         _docsProduct = await ProductModel.create({
             ...product,
@@ -29,13 +44,44 @@ const isProductIsExsited = async (id) => {
 
 const getDetailProductService = async (id) => {
     const _docsProduct = await ProductModel.findById(id)
-    _docsProduct.img = _docsProduct.img.join(',\r\n')
+    _docsProduct.link_review = _docsProduct.link_review.join(',')
 
     return _docsProduct
 }
 
-const updateProductService = async (id, product) => {
-    product.img = product.img.split(',\r\n')
+const updateProductService = async (id, product, arrayImage) => {
+
+    console.log(arrayImage)
+
+   try {
+    if(arrayImage.length){
+        if(!!product.old_image){
+            product.old_image.forEach(img => {
+                fs.unlinkSync('./public/img/' + img)
+            })
+           }
+
+        
+    }
+   } catch (error) {
+       console.log(error)
+   }
+
+  if(arrayImage.length){
+    product.img = arrayImage.map(img => {
+        const fnv32Id = fnv32Auto(`${Date.now()}${Math.random()}`)  // generate fnv32 auto for key
+        const hashNameImg =  fnv32Auto(fnv32Id) + '-' + img
+
+        fs.renameSync('./public/img/' + img, './public/img/'+hashNameImg)
+
+        return hashNameImg
+    })
+  }
+
+    //product.img = product.img.split(',\r\n')
+    product.link_review = product.link_review.split(',')
+  
+ 
     const _docsProduct = await ProductModel.findByIdAndUpdate(id, {
         ...product,
         updated_at: Date.now()
@@ -44,7 +90,11 @@ const updateProductService = async (id, product) => {
 }
 
 const deleteProductService = async (id) => {
+
     const _docsProduct = await ProductModel.findByIdAndDelete(id)
+    _docsProduct.img.forEach(img => {
+        fs.unlinkSync('./public/img/' + img)
+    })
     return _docsProduct
 }
 

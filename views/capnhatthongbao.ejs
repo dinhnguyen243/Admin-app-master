@@ -59,15 +59,19 @@
                                         <div class="card-body" style="height: 450px;">
                                            <form action="/updateEvent/<%= event._id %>" method="POST">
                                             <div class="form-row">
-                                              <div class="col-6">
+                                              <div class="col-4">
                                                   <span class="">Tiêu đề</span>
                                                 <input type="text" class="form-control" name="title" value="<%= event.title %>" required placeholder="nhập tiêu đề">
                                               </div>
                                             
-                                              <div class="col-6">
+                                              <div class="col-4">
                                                 <span class="">Link ảnh sự kiện thông báo</span>
                                                 <input type="text"  class="form-control"name="link_img"  value="<%= event.link_img %>" required placeholder="Enter link img">
                                               </div>
+                                              <div class="col-4"><span class="">Link youtube</span>
+                                                <input required class="form-control"
+                                                type="text" value="<%= event.link_review %>" name="link_review">
+                                        </div>
                                               <div class="col-md-3 mt-3">
                                                 Trạng thái
                                               <select class="custom-select" name="status">

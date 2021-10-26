@@ -62,7 +62,7 @@
                                             <tr>
                                                 <td><%= voucher.voucher_code %></td>
                                                 <td><%= voucher.description %></td>
-                                                <td><%= voucher.discount %></td>
+                                                <td> <%=voucher.discount %></td>
                                                 <td><%= voucher.status ? 'Khả dụng' : 'Không khả dụng'%></td>
                                                 <td><%= new Date(voucher.created_at).toLocaleDateString()%></td>
                                                 <td class=""><a href="/capnhatvoucher/<%= voucher._id %>"><i class="fa fa-pencil"></i></a>

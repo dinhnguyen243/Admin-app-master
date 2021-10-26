@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../public/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../public/fonts/ionicons.min.css">
     <link rel="stylesheet" href="../public/fonts/fontawesome5-overrides.min.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 
 <body id="page-top">
@@ -59,8 +60,8 @@
                             <div class="row">
                                 <div class="a">
                                     <div class="card shadow mb-5" style="width: 1200px;">
-                                        <div class="card-body" style="height: 500px;">
-                                            <form action="/insertProduct" method="POST">
+                                        <div class="card-body" style="height: 600px;">
+                                            <form action="/insertProduct" method="POST" enctype="multipart/form-data">
                                                 <div class="form-row">
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Mã
@@ -69,14 +70,15 @@
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Tên
                                                             sản phẩm</small><input required class="form-control"
-                                                            type="text" name="product_name"></div>
+                                                            type="text" name="product_name" id="product_name"></div>
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Hãng
                                                             sản xuất</small><input required class="form-control"
-                                                            type="text" name="brand"></div>
+                                                            type="text" name="brand" id="brand"></div>
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Ram</small><input
-                                                            required class="form-control" type="text" name="ram"></div>
+                                                            required class="form-control" type="text" name="ram"
+                                                            id="ram"></div>
                                                 </div>
                                                 <div class="form-row" style="height: 80px;">
                                                     <div class="col" style="height: 80px;">
@@ -84,48 +86,76 @@
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">Bộ
                                                                 nhớ trong(Rom)</small></div><input required
                                                             class="form-control" type="text" name="hard_disk"
-                                                            style="margin-top: -10px;">
+                                                            id="hard_disk" style="margin-top: -10px;">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">CPU</small>
-                                                        </div><input required class="form-control" type="text"
-                                                            style="margin-top: -10px;" name="cpu">
+                                                        </div> <select class="custom-select" name="cpu" id="cpu"
+                                                            style="margin-top: -10px;">
+                                                            <option value="intel core i3">Intel Core i3</option>
+                                                            <option value="intel core i5">Intel Core i5</option>
+                                                            <option value="intel core i7">Intel Core i7</option>
+                                                            <option value="intel core i9">Intel Core i9</option>
+                                                            <option value="amd ryzen 5">AMD Ryzen 5</option>
+                                                            <option value="amd ryzen 7">AMD Ryzen 7</option>
+                                                            <option value="amd ryzen threadripper"> AMD Ryzen
+                                                                threadripper</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="col" style="height: 82px;"><small
-                                                            class="form-text text-muted"
-                                                            style="font-size: 20px;font-family: initial;width: 200px;">Core</small><input
-                                                            required class="form-control" type="text"
-                                                            style="margin-top: 5px;" name="core"></div>
+                                                    <div class="col">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">Core</small>
+                                                        </div> <select class="custom-select" name="core" id="core"
+                                                            style="margin-top: -10px;">
+                                                            <option value="core i2 duo"> Core i2 duo</option>
+                                                            <option value="core i3"> Core i3</option>
+                                                            <option value="core i5"> Core i5</option>
+                                                            <option value="core i7"> Core i7</option>
+                                                            <option value="core i9">Core i9</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Màu
                                                             sắc</small><input required class="form-control" type="text"
-                                                            style="margin-top: 5px;" name="color"></div>
+                                                            style="margin-top: 5px;" name="color" id="color"></div>
                                                 </div>
                                                 <div class="form-row" style="height: 80px;">
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">Màn
                                                                 hình</small></div><input required class="form-control"
-                                                            type="text" style="margin-top: -10px;" name="monitor">
+                                                            type="text" style="margin-top: -10px;" name="monitor"
+                                                            id="monitor">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 232px;">Kích
                                                                 thước(rộng x dài x cao)</small></div><input required
-                                                            class="form-control" type="text" style="margin-top: -10px;"
-                                                            name="size">
+                                                            id="size" class="form-control" type="text"
+                                                            style="margin-top: -10px;" name="size">
                                                     </div>
                                                     <div class="col" style="height: 80px;"><small
                                                             class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Card
-                                                            đồ họa(VGA)</small><input required class="form-control"
-                                                            type="text" style="margin-top: 6px;" name="vga"></div>
+                                                            đồ họa(VGA)</small>
+                                                        <select class="custom-select" name="vga" id="vga"
+                                                            style="margin-top: 6px;">
+                                                            <option value="radeon 5700 xt">Radeon 5700 XT</option>
+                                                            <option value="radeon rx 580">Radeon RX 580</option>
+                                                            <option value="rtx 2060">RTX 2060</option>
+                                                            <option value="Rtx 2070">RTX 2070</option>
+                                                            <option value="geforce gtx 1660">GeForce GTX 1660</option>
+                                                            <option value="geforce rtx 2080 Ti">GeForce RTX 2080 Ti
+                                                            </option>
+                                                        </select>
+                                                    </div>
                                                     <div class="col" style="height: 80px;"><small
                                                             class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Hệ
                                                             điều hành</small><input required class="form-control"
-                                                            type="text" style="margin-top: 6px;" name="os"></div>
+                                                            type="text" style="margin-top: 6px;" name="os" id="os">
+                                                    </div>
                                                 </div>
                                                 <div class="form-row" style="height: 80px;">
                                                     <div class="col">
@@ -133,38 +163,40 @@
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">Giá
                                                                 nhập</small></div><input required class="form-control"
                                                             type="number" min="1" style="margin-top: -10px;"
-                                                            name="price_income">
+                                                            name="price_income" id="price_income">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 232px;">Giá
                                                                 bán</small></div><input required class="form-control"
                                                             type="number" min="1" style="margin-top: -10px;"
-                                                            name="price_outcome">
+                                                            name="price_outcome" id="price_outcome">
                                                     </div>
                                                     <div class="col" style="height: 80px;"><small
                                                             class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Số
                                                             lượng sản phẩm</small><input required class="form-control"
-                                                            type="text" style="margin-top: 6px;" name="quantity"></div>
+                                                            type="number" style="margin-top: 6px;" name="quantity"
+                                                            id="quantity">
+                                                    </div>
                                                     <div class="col" style="height: 80px;"><small
                                                             class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Link
-                                                            video review</small><input required class="form-control"
-                                                            type="text" style="margin-top: 6px;" name="link_review">
+                                                            video review</small><textarea rows="2" class="form-control"
+                                                            required type="text" style="margin-top: 6px;"
+                                                            name="link_review" id="link_review"></textarea>
                                                     </div>
                                                 </div>
-                                                <div class="form-row" style="height: 80px;">
-                                                    <div class="col-6">
-                                                        <div class="form-group"><small class="form-text text-muted"
-                                                                style="font-size: 20px;font-family: initial;width: 200px;">Link
-                                                                hình ảnh</small></div><textarea rows="4"
-                                                            class="form-control" required type="text"
-                                                            style="margin-top: 6px;"
-                                                            name="img"></textarea>
-                                                    </div>
+                                                <div class="form-row pt-5" style="height: 80px;">
+                                                    Select image to upload:
+                                                    <input type="file" name="img" id="img" multiple
+                                                        accept=".jpg,.png,.jpeg" required>
                                                 </div>
-                                                <button class="btn btn-primary" type="submit"
+                                                <div class="form-row pt-5" style="height: 80px;">
+                                                    Select xlxs to upload:
+                                                    <input type="file" id="excel" name="excel" accept=".xlsx   ">
+                                                </div>
+                                                <button class="btn btn-primary" type="submit" id="btnSubmit"
                                                     style="margin-top: 20px; right: 20px; position: absolute;">Thêm Sản
                                                     Phẩm</button>
                                             </form>
@@ -190,6 +222,116 @@
     <script src="../public/scripts/chart.min.js"></script>
     <script src="../public/scripts/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+
+    <script>
+        const excelFile = document.getElementsByName('excel')[0]
+        const btnSubmit = document.getElementById('btnSubmit')
+        let arrayProduct = []
+
+        excelFile.addEventListener('change', async () => {
+            const dataRows = await readXlsxFile(excelFile.files[0])
+            dataRows.shift()
+            arrayProduct = dataRows
+            const inputID = document.getElementsByName('product_id')[0]
+            const select = document.createElement('select')
+            select.id = 'product_id'
+            select.name = 'product_id'
+            select.className = 'custom-select'
+            //Create and append the options
+            for (let i = 0; i < dataRows.length; i++) {
+                const option = document.createElement("option");
+                option.value = dataRows[i][0];
+                option.text = dataRows[i][0];
+                select.appendChild(option);
+            }
+            
+            console.log(arrayProduct)
+
+            inputID.outerHTML = select.outerHTML
+            const selectID = document.getElementById('product_id')
+
+              // binding dom element
+              const name = document.getElementById('product_name')
+                const brand = document.getElementById('brand')
+                const ram = document.getElementById('ram')
+                const cpu = document.getElementById('cpu')
+                const hard_disk = document.getElementById('hard_disk')
+                const core = document.getElementById('core')
+                const color = document.getElementById('color')
+                const monitor = document.getElementById('monitor')
+                const size = document.getElementById('size')
+                const os = document.getElementById('os')
+                const vga = document.getElementById('vga')
+                const quantity = document.getElementById('quantity')
+                const price_income = document.getElementById('price_income')
+                const price_outcome = document.getElementById('price_outcome')
+                const link_review = document.getElementById('link_review')
+                const img = document.getElementById('img')
+            
+            dataRows.find(row => {
+                    if (row[0] === selectID.value) {
+                        name.value = row[1]
+                        brand.value = row[2]
+                        ram.value = row[3]
+                        hard_disk.value = row[4]
+                        cpu.value = row[5].toLowerCase()
+                        core.value = row[6].toLowerCase()
+                        color.value = row[7]
+                        monitor.value = row[8]
+                        size.value = row[9]
+                        vga.value = row[10].toLowerCase()
+                        os.value = row[11]
+                        price_income.value = row[12]
+                        price_outcome.value = row[13]
+                        quantity.value = row[14]
+                        link_review.value = row[15]
+                    }
+                })
+
+                console.log(core.value)
+            selectID.addEventListener('change', () => {
+              
+            
+                const value = document.getElementById('product_id').value
+                dataRows.find(row => {
+                    if (row[0] === value) {
+                        name.value = row[1]
+                        brand.value = row[2]
+                        ram.value = row[3]
+                        hard_disk.value = row[4]
+                        cpu.value = row[5].toLowerCase()
+                        core.value = row[6].toLowerCase()
+                        color.value = row[7]
+                        monitor.value = row[8]
+                        size.value = row[9]
+                        vga.value = row[10].toLowerCase()
+                        os.value = row[11]
+                        price_income.value = row[12]
+                        price_outcome.value = row[13]
+                        quantity.value = row[14]
+                        link_review.value = row[15]
+                    }
+                })
+
+            })
+        })
+
+        btnSubmit.addEventListener('click', () => {
+            if (document.getElementById('product_id').tagName === 'SELECT')
+                postData()
+        })
+
+        const postData = () => {
+            fetch('https://admin-laptop-app.herokuapp.com/api/upload', {
+                method: 'post', 
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(arrayProduct)
+            }).then(res => window.location.href = '/')
+        }
+    </script>
 
 </body>
 

@@ -9,6 +9,7 @@ import _auth from './_auth.js'
 import event from './event.js'
 import customer from './customer.js'
 import emailsender from './emailsender.js'
+import productService from '../../services/product.service.js'
 
 const router = express.Router()
 
@@ -37,5 +38,33 @@ router.get('/user/:id',customer.getUserById)
 router.patch('/user/:id',customer.updateUserById)
 
 router.post('/emailsender',emailsender)
+
+router.post('/upload', (req, res) => {
+    
+    const arrProductXlxs = req.body
+    console.log(arrProductXlxs)
+   arrProductXlxs.forEach(async product => {
+      await productService.insertProductService(null,{
+           product_id: product[0],
+           product_name: product[1],
+           brand: product[2],
+           ram: product[3],
+           hard_disk: product[4],
+           cpu: product[5],
+           core: product[6],
+           color: product[7],
+           monitor: product[8],
+           size: product[9],
+           os: product[10],
+           vga: product[11],
+           price_income: product[12],
+           price_outcome: product[13],
+           quantity: product[14],
+           link_review: product[15],
+       })
+   })
+   
+   res.json({mess: 'ok'})
+})
 
 export default router

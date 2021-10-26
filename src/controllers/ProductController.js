@@ -3,7 +3,8 @@ import productService from '../services/product.service.js'
 class ProductController {
     async insertProduct(req, res) {
         const product = req.body
-        await productService.insertProductService(product)
+        const arrayImage = req.files.map(({filename})=> filename)
+        await productService.insertProductService(arrayImage, product)
         res.redirect('/')
     }
 
@@ -18,7 +19,8 @@ class ProductController {
     async updateProduct(req, res) {
         const { id } = req.params
         const _product = req.body
-        const product = await productService.updateProductService(id, _product)
+        const arrayImage = req.files.map(({filename})=> filename)
+        const product = await productService.updateProductService(id, _product, arrayImage)
         res.redirect('/danhsachsanpham')
     }
 

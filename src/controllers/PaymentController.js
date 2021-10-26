@@ -70,7 +70,7 @@ class PaymentController {
             if(customer === null){
                 continue
             }
-
+            
             confirmBill.push({
                 bill_id: bill.bill_id,
                 fullname: customer.fullname,
@@ -114,7 +114,7 @@ class PaymentController {
                     color: 1
                 }
             )
-
+                console.log(product)
             listPurchased.push({
                 product_id: purchase.product_id,
                 product_name: product.product_name,

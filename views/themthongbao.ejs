@@ -59,15 +59,19 @@
                                         <div class="card-body" style="height: 450px;">
                                            <form action="/insertEvent" method="POST">
                                             <div class="form-row">
-                                              <div class="col-6">
+                                              <div class="col-4">
                                                   <span class="">Tiêu đề</span>
                                                 <input type="text" class="form-control" name="title" required placeholder="nhập tiêu đề">
                                               </div>
                                             
-                                              <div class="col-6">
+                                              <div class="col-4">
                                                 <span class="">Link ảnh sự kiện thông báo</span>
                                                 <input type="text"  class="form-control"name="link_img" required placeholder="Enter link img">
                                               </div>
+                                              <div class="col-4"><span class="">Link youtube</span>
+                                                <input required class="form-control"
+                                                type="text"  name="link_review">
+                                        </div>
                                               <div class="col mt-3">
                                                 <span class="">Nội dung</span>
                                                 <textarea type="text" style="height: 100px;" class="form-control" name="description" required placeholder="Noi dung"></textarea>

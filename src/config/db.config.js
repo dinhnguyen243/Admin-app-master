@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 const USER_MONGO = process.env.user
 const KEY_MONGO = process.env.password
-const CONNECT_URL = `mongodb+srv://${USER_MONGO}:${KEY_MONGO}@cluster0.5m6ec.mongodb.net/laptopstore?retryWrites=true&w=majority`
+const CONNECT_URL = `mongodb+srv://${USER_MONGO}:${KEY_MONGO}@cluster0.5m6ec.mongodb.net/laptopstore?retryWrites=true&w=majority&ssl=true`
 
 const connect = async () => {
     try {

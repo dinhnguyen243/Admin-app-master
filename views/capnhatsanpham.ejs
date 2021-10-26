@@ -59,112 +59,163 @@
                             <div class="row">
                                 <div class="a">
                                     <div class="card shadow mb-5" style="width: 1200px;">
-                                        <div class="card-body" style="height: 500px;">
-                                            <form action="/updateProduct/<%= product._id %>" method="POST">
+                                        <div class="card-body" style="height: 600px;">
+                                            <form action="/updateProduct/<%= product._id %>" method="POST" enctype="multipart/form-data">
                                                 <div class="form-row">
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Mã
-                                                            sản phẩm</small><input disabled class="form-control" required type="text"
-                                                            name="product_id" value="<%= product.product_id %>"></div>
+                                                            sản phẩm</small><input disabled class="form-control"
+                                                            required type="text" name="product_id"
+                                                            value="<%= product.product_id %>"></div>
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Tên
-                                                            sản phẩm</small><input class="form-control" required type="text"
-                                                            name="product_name" value="<%= product.product_name %>"></div>
+                                                            sản phẩm</small><input class="form-control" required
+                                                            type="text" name="product_name"
+                                                            value="<%= product.product_name %>"></div>
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Hãng
-                                                            sản xuất</small><input class="form-control" required type="text"
-                                                            name="brand" value="<%= product.brand %>"></div>
+                                                            sản xuất</small><input class="form-control" required
+                                                            type="text" name="brand" value="<%= product.brand %>"></div>
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Ram</small><input
-                                                            class="form-control" type="text" required name="ram"  value="<%= product.ram %>"></div>
+                                                            class="form-control" type="text" required name="ram"
+                                                            value="<%= product.ram %>"></div>
                                                 </div>
                                                 <div class="form-row" style="height: 80px;">
                                                     <div class="col" style="height: 80px;">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">Bộ
                                                                 nhớ trong(Rom)</small></div>
-                                                        <input class="form-control" required type="text" name="hard_disk"
-                                                            value="<%= product.hard_disk %>"
+                                                        <input class="form-control" required type="text"
+                                                            name="hard_disk" value="<%= product.hard_disk %>"
                                                             style="margin-top: -10px;">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">CPU</small>
-                                                        </div><input class="form-control" required type="text"
-                                                            style="margin-top: -10px;" name="cpu"
-                                                            value="<%= product.cpu %>">
+                                                        </div> <select class="custom-select" name="cpu"
+                                                            style="margin-top: -10px;">
+                                                            <option value="Intel Core i3">Intel Core i3</option>
+                                                            <option value="Intel Core i5">Intel Core i5</option>
+                                                            <option value="Intel Core i7">Intel Core i7</option>
+                                                            <option value="Intel Core i9">Intel Core i9</option>
+                                                            <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+                                                            <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+                                                            <option value="AMD Ryzen threadripper"> AMD Ryzen
+                                                                threadripper</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="col" style="height: 82px;"><small
-                                                            class="form-text text-muted"
-                                                            style="font-size: 20px;font-family: initial;width: 200px;">Core</small><input
-                                                            class="form-control" type="text" style="margin-top: 5px;"
-                                                            name="core" required value="<%= product.product_id %>"></div>
+                                                    <div class="col">
+                                                        <div class="form-group"><small class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">Core</small>
+                                                        </div> <select class="custom-select" name="core"  style="margin-top: -10px;">
+                                                            <option value="Intel Core i3"> Core i2 duo</option>
+                                                            <option value="Core i3"> Core i3</option>
+                                                            <option value=" Core i5"> Core i5</option>
+                                                            <option value=" Core i7"> Core i7</option>
+                                                            <option value=" Core i9">Core i9</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="col"><small class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Màu
                                                             sắc</small><input class="form-control" required type="text"
-                                                            style="margin-top: 5px;" name="color" value="<%= product.color %>"></div>
+                                                            style="margin-top: 5px;" name="color"
+                                                            value="<%= product.color %>"></div>
                                                 </div>
                                                 <div class="form-row" style="height: 80px;">
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">Màn
                                                                 hình</small></div><input class="form-control"
-                                                            type="text" required style="margin-top: -10px;" name="monitor"
-                                                            value="<%= product.monitor %>">
+                                                            type="text" required style="margin-top: -10px;"
+                                                            name="monitor" value="<%= product.monitor %>">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 232px;">Kích
                                                                 thước(rộng x dài x cao)</small></div><input
-                                                            class="form-control" required type="text" style="margin-top: -10px;"
-                                                            name="size" value="<%= product.size %>">
+                                                            class="form-control" required type="text"
+                                                            style="margin-top: -10px;" name="size"
+                                                            value="<%= product.size %>">
                                                     </div>
                                                     <div class="col" style="height: 80px;"><small
                                                             class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Card
-                                                            đồ họa(VGA)</small><input class="form-control" type="text"
-                                                            style="margin-top: 6px;" name="vga" required value="<%= product.product_id %>"></div>
+                                                            đồ họa(VGA)</small>
+                                                        <select class="custom-select" name="vga"
+                                                            style="margin-top: 6px;">
+                                                            <option value="Radeon 5700 XT">Radeon 5700 XT</option>
+                                                            <option value="Radeon RX 580">Radeon RX 580</option>
+                                                            <option value="RTX 2060">RTX 2060</option>
+                                                            <option value="RTX 2070">RTX 2070</option>
+                                                            <option value="GeForce GTX 1660">GeForce GTX 1660</option>
+                                                            <option value="GeForce RTX 2080 Ti">GeForce RTX 2080 Ti
+                                                            </option>
+                                                        </select>
+                                                    </div>
                                                     <div class="col" style="height: 80px;"><small
                                                             class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Hệ
                                                             điều hành</small><input class="form-control" type="text"
-                                                            style="margin-top: 6px;" name="os" required value="<%= product.os %>"></div>
+                                                            style="margin-top: 6px;" name="os" required
+                                                            value="<%= product.os %>"></div>
                                                 </div>
                                                 <div class="form-row" style="height: 80px;">
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">Giá
                                                                 nhập</small></div><input class="form-control"
-                                                            type="number" min="1" style="margin-top: -10px;"required name="price_income" value="<%= product.price_income %>">
+                                                            type="number" min="1" style="margin-top: -10px;" required
+                                                            name="price_income" value="<%= product.price_income %>">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 232px;">Giá
-                                                                bán</small></div><input class="form-control" type="number"
-                                                            style="margin-top: -10px;" name="price_outcome" min="1" required value="<%= product.price_outcome %>">
+                                                                bán</small></div><input class="form-control"
+                                                            type="number" style="margin-top: -10px;"
+                                                            name="price_outcome" min="1" required
+                                                            value="<%= product.price_outcome %>">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><small class="form-text text-muted"
                                                                 style="font-size: 20px;font-family: initial;width: 200px;">Số
-                                                                lượng Sản phẩm</small></div><input class="form-control" required
-                                                            type="number" style="margin-top: -10px; width: 280px;"
-                                                            name="quantity" min="1" value="<%= product.quantity %>">
+                                                                lượng Sản phẩm</small></div><input class="form-control"
+                                                            required type="number"
+                                                            style="margin-top: -10px; width: 280px;" name="quantity"
+                                                            min="1" value="<%= product.quantity %>">
                                                     </div>
                                                     <div class="col" style="height: 80px;"><small
                                                             class="form-text text-muted"
                                                             style="font-size: 20px;font-family: initial;width: 200px;">Link
-                                                            video review</small><input class="form-control" required type="text"
-                                                            style="margin-top: 6px;" name="link_review" value="<%= product.link_review %>"></div>
+                                                            video review</small><textarea rows="2" class="form-control"
+                                                            required type="text" style="margin-top: 6px;"
+                                                            name="link_review"><%= product.link_review %></textarea></div>
                                                 </div>
                                                 <div class="form-row" style="height: 80px;">
-                                                   
-                                                    <div class="col" style="height: 80px;"><small
-                                                        class="form-text text-muted"
-                                                        style="font-size: 20px;font-family: initial;width: 200px;">Link
-                                                        hình ảnh</small><textarea rows="4" class="form-control" required type="text"
-                                                        style="margin-top: 6px;" name="img"><%= product.img %></textarea></div>
+
+                                                    <!-- <div class="col" style="height: 80px;"><small
+                                                            class="form-text text-muted"
+                                                            style="font-size: 20px;font-family: initial;width: 200px;">Link
+                                                            hình ảnh</small><textarea rows="4" class="form-control"
+                                                            required type="text" style="margin-top: 6px;"
+                                                            name="img"><%= product.img %></textarea></div> -->
+                                                            <div class="col" style="height: 80px;"><small
+                                                                class="form-text text-muted"
+                                                                style="font-size: 20px;font-family: initial;width: 200px;">
+                                                                hình ảnh</small>
+                                                                <% for(const img of product.img){%>
+                                                                    <img src="../public/img/<%= img %>" width="100"/>
+                                                                    <input type="text" hidden
+                                                                     name="old_image[]" value="<%= img %>"/>
+                                                                <% } %>
+                                                                <br><br>
+                                                                Select image to upload:
+                                                                <input type="file" name="img"  multiple accept=".jpg,.png,.jpeg">
+                                                            </div>
                                                     <div class="col text-center mt-5">
-                                                        <p>Ngày chỉnh sửa gần nhất:<strong> <%=new Date(product.updated_at).toLocaleDateString() %></strong></p>
+                                                        <p>Ngày chỉnh sửa gần nhất:<strong>
+                                                                <%=new Date(product.updated_at).toLocaleDateString() %></strong>
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <button class="btn btn-primary" type="submit"
